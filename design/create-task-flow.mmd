@@ -1,0 +1,18 @@
+flowchart TD
+  A[Enter app] --> B[Main view: TaskList]
+  B --> C[Click New Task]
+  C --> D[Open TaskForm]
+  D --> E[User types description]
+  E --> F[Submit and show loading]
+  F --> G[Call AI service - iceCalculator]
+  G --> H{Valid response?}
+  H -- Yes --> I[Normalize I,C,E and calculate ICE score]
+  H -- No --> J[Apply fallback values and show notice]
+  I --> K[Show PriorityModal with suggested values]
+  J --> K
+  K --> L{User accepts?}
+  L -- Yes --> M[Save task to localStorage and update TaskList]
+  L -- Edit values --> N[User edits I/C/E manually]
+  N --> M
+  M --> O[Reorder list by ICE score]
+  O --> P[End: Task confirmed and visible]

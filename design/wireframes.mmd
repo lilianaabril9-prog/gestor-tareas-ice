@@ -1,0 +1,30 @@
+flowchart TB
+  subgraph Screen1[Home / TaskList]
+    style Screen1 fill:#ffffff,stroke:#333,stroke-width:1px
+    Navbar[Navbar: MUI AppBar with Title + NewTask Button]
+    SearchBar[SearchBar: MUI TextField]
+    TaskList[TaskList: MUI List to TaskCard]
+    Footer[Footer - clear actions]
+  end
+  subgraph TaskCardBox[TaskCard]
+    Card[MUI Card]
+    Checkbox[Checkbox]
+    Description[Typography - description]
+    ICEChip[Chip badge - score]
+    Actions[IconButton - edit, delete]
+  end
+  subgraph TaskFormModal[TaskForm Modal]
+    Modal[Dialog]
+    TextField[TextField - description]
+    Submit[Button - Create]
+  end
+  subgraph PriorityModalOverlay[PriorityModal]
+    DialogP[Dialog]
+    SuggestedICE[3 sliders or numeric inputs - Impact, Confidence, Ease]
+    ScoreDisplay[Score - calculated]
+    Confirm[Button - Confirm]
+    EditManual[Button - Edit manually]
+  end
+  Screen1 --> TaskCardBox
+  Screen1 --> TaskFormModal
+  TaskCardBox --> PriorityModalOverlay

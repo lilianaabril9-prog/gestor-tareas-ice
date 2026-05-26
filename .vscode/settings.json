@@ -1,0 +1,13 @@
+"search.exclude": {
+
+        "**/tmp": true,
+        "**/tmp/**": true
+
+    },
+
+    "files.exclude": {
+
+        "**/tmp": true,
+        "**/tmp/**": true
+
+    }
